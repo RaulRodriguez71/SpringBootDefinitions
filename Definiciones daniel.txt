@@ -1,0 +1,37 @@
+
+
+
+
+
+Qué es un @Bean?
+
+Definición:
+
+Un Java Bean, también son conocidos un Bean, es una clase simple en Java que cumple con ciertas normas con los nombres de sus propiedades y métodos. Es un componente (similar a una caja) que nos permite encapsular el contenido, con la finalidad de otorgarle una mejor estructura. Que además, permite la reutilización de código mediante a una estructura sencilla.
+
+Se aconseja que un bean cumpla las siguientes condiciones:
+
+Constructor sin argumentos: aunque ya existe por defecto (no se ve pero está), se aconseja el declararlo.
+Atributos privados.
+Getters&Setters de todos los atributos.
+
+El bean puede implementar Serializable.
+Requieren una anotación o crear un fichero .xml donde se detalle que es un Bean.
+Mediante estos JavaBeans, desarrollamos nuestro modelo de objetos (o modelo de dominio) para la aplicación. Nuestros POJOS realmente son Beans siempre y que añadamos una anotación que indique que dicho POJO es un Bean. 
+
+
+https://javadesde0.com/introduccion-a-los-beans/ 
+
+
+¿Para qué sirven estos Beans?
+Si decimos que solamente son clases de Java, esto nos hace pensar qué sentido tienen. Lo que le da sentido a los Beans es la inyección de dependencias o Injection Dependency de la que vamos a hablar en el siguiente apartado.
+
+¿Qué es la inyección de dependencias?
+La Inyección de dependencias es un patrón de diseño orientado a objetos, cuya finalidad es la de suministrar objetos a una clase mediante a Spring Container, sin que la propia clase tenga que crearlos.
+
+Es decir, que mediante a Spring Boot definimos Beans (objetos) y mediante a configuraciones específicas y al trabajo de Spring Container (contenedor) los inyectamos en la clase que lo necesite. Spring tiene muchas anotaciones para ello, algunas son las que hemos visto en el ejemplo anterior. Aunque en este artículo veremos algunas más, que nos proporcionarán una base con la que ya podremos indagar un poco más nosotros mismos.
+
+¿Qué hace la anotación @Configuration y @Bean?
+La anotación @Bean, nos sirve para indicar que este bean será administrado por Spring Boot. La administración de estos beans se realiza mediante a anotaciones como @Configuration.
+
+
