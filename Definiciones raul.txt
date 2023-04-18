@@ -1,0 +1,41 @@
+Ejercicio 1:
+Un Bean es un componente software que tiene la particularidad de ser reutilizable y 
+así evitar la tediosa tarea de programar los distintos componentes uno a uno.
+
+@Configuration
+public class AppConfig {
+ 
+    @Bean
+    public Version version() {
+        return new Version(1, 0, 0);
+    }
+ 
+}
+En está clase le estamos indicando a Spring que nuestra clase con la anotación @Configuration será una clase encargada 
+de crear beans a través de sus métodos marcados con la anotación @Bean.
+
+Esto puede ser bastante útil ya que si queremos crear una instancia de una clase externa y no podemos usar la anotación 
+@Component ya que el código no es accesible desde nuestro proyecto, podremos crearla gracias a la anotación @Configuration y @Bean. 
+Para ver un ejemplo de ello vamos a crear una instancia de HttpClient que se encuentra dentro del JDK:
+
+@Configuration
+public class AppConfig {
+ 
+    @Bean
+    public Version version() {
+        return new Version(1, 0, 0);
+    }
+ 
+    @Bean
+    public HttpClient httpClient(){
+        return HttpClient.newBuilder()
+                .build();
+    }
+ 
+    @Bean
+    public HttpClient httpClient2(){
+        return HttpClient.newBuilder()
+                .build();
+    }
+ 
+}
