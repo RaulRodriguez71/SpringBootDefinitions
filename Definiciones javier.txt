@@ -1,0 +1,34 @@
+Antes que nada, hay que recordar que toda anotaciónespecial como podría ser @Controller, @RestController, @Configuration, @Service, etc... 
+provienen de la anotación @Component.
+
+@Controller
+  Con esta anotación somos capaces de indicarle a Spring que esa clase va a ser un controlador, la cual sirve para contener o albergar 
+métodos capaces de recibir peticiones web.
+
+
+@RestController
+  La diferencia que tiene con Controller es que los métodos recibirán peticiones Restful, es decir, GET, POST, PUT, etc...
+
+@PathVariable
+  Se encarga de recoger parámetros en una ruta que nosotros le hayamos indicado siempre y cuando usemos {parametro}
+
+@RequestMapping
+  Con esta anotación somos capaces de indicarle a Spring cual es, por así decirlo, la URI de la que van a provenir las peticiones. 
+  
+  @RestController
+  @RequestMapping("/hola")
+  public class hola{
+  
+    @GetMapping("/{nombre}")
+    public String saludarNombre(@PathVariable String nombre){
+      return "Hola " + nombre;
+    }
+    @PostMapping("/apellido")
+    public String saludarApellido(@RequestBody String apellido){
+      return "Hola " + apellido;
+    }
+  
+  }
+
+Con el siguiente código, lo que conseguimos es que cuando alguien ponga /hola/nombre u /hola/apellido se le devolverá un saludo con su
+nombre o apellido sin tener que estar poniendo en la ruta del GetMapping o PostMapping el enlace completo cada vez.
